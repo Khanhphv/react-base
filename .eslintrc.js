@@ -13,6 +13,11 @@ module.exports = {
       jsx: true,
     },
   },
+  settings: {
+    'import/resolver': {
+      typescript: {}
+    },
+  },
   plugins: ['react', '@typescript-eslint', 'prettier', 'import'],
   rules: {
     '@typescript-eslint/no-unused-vars': 'error',

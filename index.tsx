@@ -1,12 +1,19 @@
 import * as React from 'react';
-import * as ReactDOM from 'react-dom';
-import App from './src/app';
 import { StrictMode } from 'react';
+import { createRoot } from 'react-dom/client';
+import App from './src/app';
 
-ReactDOM.render(
+// eslint-disable-next-line no-undef
+const root = createRoot(document.getElementById('app'));
+root.render(
   <StrictMode>
     <App />
-  </StrictMode>,
-  // eslint-disable-next-line no-undef
-  document.getElementById('#app')
+  </StrictMode>
 );
+// ReactDOM.render(
+//   <StrictMode>
+//     <App />
+//   </StrictMode>,
+//   // eslint-disable-next-line no-undef
+//   document.getElementById('#app')
+// );
