@@ -1,6 +1,11 @@
 import * as React from 'react';
+import Login from './login';
 
-const App = (props: any) => {
-  return <div>{props?.children}</div>;
+const App = () => {
+  return (
+    <div>
+      <Login />
+    </div>
+  );
 };
 export default App;
