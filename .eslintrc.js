@@ -2,10 +2,10 @@ module.exports = {
   extends: [
     'eslint:recommended',
     'plugin:react/recommended',
-    'plugin:react/recommended',
     'plugin:import/errors',
     'plugin:import/warnings',
   ],
+  parser: "@typescript-eslint/parser",
   parserOptions: {
     ecmaVersion: 'latest',
     sourceType: 'module',
@@ -23,7 +23,7 @@ module.exports = {
     '@typescript-eslint/no-unused-vars': 'error',
     '@typescript-eslint/ban-ts-ignore': 'off',
     '@typescript-eslint/ban-ts-comment': 'off',
-    '@typescript-eslint/no-explicit-any': 'error',
+    '@typescript-eslint/no-explicit-any': 'off',
     'prettier/prettier': 'error',
     'comma-spacing': ['error', { before: false, after: true }],
     'object-curly-spacing': ['error', 'always'],

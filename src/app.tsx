@@ -1,9 +1,6 @@
 import * as React from 'react';
 
-const App = () => {
-  return <div>Xindasdasd 
-
-
-    cha123123o</div>;
+const App = (props: any) => {
+  return <div>{props?.children}</div>;
 };
 export default App;
