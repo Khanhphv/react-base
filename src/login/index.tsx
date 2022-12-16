@@ -1,31 +1,36 @@
 import React from 'react';
-import { Box, Container, TextField } from '@mui/material';
-
+import { Box, Button, Container } from '@mui/material';
+import * as yup from 'yup';
+import KForm from '../../components/form';
+import KInputText from '../../components/input';
+const schema = yup
+  .object({
+    username: yup.string().required(),
+    password: yup.string().required(),
+  })
+  .required();
 const Login = () => {
   return (
     <Container maxWidth={'sm'}>
       <Box
-        component="form"
         sx={{
           '& .MuiTextField-root': { m: 1, width: '25ch' },
         }}>
-        <div>
-          <TextField
-            error
-            id="outlined-error"
-            label="Error"
-            defaultValue="Hello World"
-          />
-        </div>
-        <div>
-          <TextField
-            error
-            id="outlined-error-helper-text"
-            label="Error"
-            defaultValue="Hello World"
-            helperText="Incorrect entry."
-          />
-        </div>
+        <KForm
+          schema={schema}
+          onSubmit={data => {
+            console.log('dxxa', data);
+          }}>
+          <div>
+            <KInputText name="username" label="Username" />
+          </div>
+          <div>
+            <KInputText name="password" label="Password" />
+          </div>
+          <Button variant="contained" type={'submit'}>
+            Submit
+          </Button>
+        </KForm>
       </Box>
     </Container>
   );
