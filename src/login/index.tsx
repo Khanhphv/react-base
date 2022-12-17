@@ -1,8 +1,10 @@
 import React from 'react';
-import { Box, Button, Container } from '@mui/material';
+import { Box, Button, Container, Typography } from '@mui/material';
 import * as yup from 'yup';
+import { css } from '@emotion/react';
 import KForm from '../../components/form';
 import KInputText from '../../components/input';
+import useLogin from './useLogin';
 const schema = yup
   .object({
     username: yup.string().required(),
@@ -10,16 +12,18 @@ const schema = yup
   })
   .required();
 const Login = () => {
+  const { loading, login } = useLogin();
   return (
-    <Container maxWidth={'sm'}>
+    <Container>
       <Box
         sx={{
-          '& .MuiTextField-root': { m: 1, width: '25ch' },
+          '& .MuiTextField-root': { mt: 2, mb: 2 },
         }}>
+        <Typography variant="h3"> Login</Typography>
         <KForm
           schema={schema}
-          onSubmit={data => {
-            console.log('dxxa', data);
+          onSubmit={async data => {
+            await login(data);
           }}>
           <div>
             <KInputText name="username" label="Username" />
@@ -27,7 +31,13 @@ const Login = () => {
           <div>
             <KInputText name="password" label="Password" />
           </div>
-          <Button variant="contained" type={'submit'}>
+          <Button
+            disabled={loading}
+            variant="contained"
+            type={'submit'}
+            css={css`
+              min-width: 100%;
+            `}>
             Submit
           </Button>
         </KForm>

@@ -1,7 +1,7 @@
 import React from 'react';
-import { TextField, Typography } from '@mui/material';
+import { TextField } from '@mui/material';
 import { Controller, useFormContext } from 'react-hook-form';
-
+import { css } from '@emotion/react';
 const KInputText = (props: any) => {
   const { name, label, defaultValue = '', ...otherProps } = props;
   const { control } = useFormContext();
@@ -22,6 +22,9 @@ const KInputText = (props: any) => {
                 !!formState.errors[name] &&
                 (formState.errors[name]?.message as string)
               }
+              css={css`
+                min-width: 100%;
+              `}
               {...otherProps}
             />
           </>
